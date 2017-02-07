@@ -9,8 +9,8 @@
 // Connect the GPS Power pin to 5V
 // Connect the GPS Ground pin to ground
 // If using software serial:
-//   Connect the GPS TX (transmit) pin to Digital 3
-//   Connect the GPS RX (receive) pin to Digital 2
+//   Connect the GPS TX (transmit) pin to Digital 2
+//   Connect the GPS RX (receive) pin to Digital 3
 // If using hardware serial:
 //   Connect the GPS TX (transmit) pin to Arduino RX1 (Digital 0)
 //   Connect the GPS RX (receive) pin to matching TX1 (Digital 1)

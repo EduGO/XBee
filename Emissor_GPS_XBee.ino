@@ -1,4 +1,7 @@
 // EyeLink XBee Code
+// changes 6/2/2017 
+// Data rate changed (2 sec to 1 sec) 
+// Rx & Tx changed
 
 #include <Adafruit_GPS.h>
 #include <SoftwareSerial.h>
@@ -6,14 +9,14 @@
 // Connect the GPS Power pin to 5V
 // Connect the GPS Ground pin to ground
 // If using software serial:
-//   Connect the GPS TX (transmit) pin to Digital 3
-//   Connect the GPS RX (receive) pin to Digital 2
+//   Connect the GPS TX (transmit) pin to Digital 2
+//   Connect the GPS RX (receive) pin to Digital 3
 // If using hardware serial:
 //   Connect the GPS TX (transmit) pin to Arduino RX1 (Digital 0)
 //   Connect the GPS RX (receive) pin to matching TX1 (Digital 1)
 
 // If using software serial, keep these lines enabled
-SoftwareSerial mySerial(3, 2);
+SoftwareSerial mySerial(2, 3);
 Adafruit_GPS GPS(&mySerial);
 
 // Set GPSECHO to 'false' to turn off echoing the GPS data to the Serial console
@@ -23,7 +26,7 @@ Adafruit_GPS GPS(&mySerial);
 void setup()  
 {    
   Serial.begin(115200);
-  delay(5000);
+  delay(500);
   Serial.println("EyeLink Mission XBee Code!");
   
   GPS.begin(9600);
@@ -72,15 +75,15 @@ void loop()                     // run over and over again
   // if millis() or timer wraps around, we'll just reset it
   if (timer > millis())  timer = millis();
 
-  // approximately every 2 seconds or so, print out the current stats
-  if (millis() - timer > 2000) { 
+  // approximately every 1 seconds or so, print out the current stats
+  if (millis() - timer > 1000) { 
     timer = millis(); // reset the timer
         
-    if (GPS.fix ==0){
+    if (GPS.fix == 0){
     Serial.println("Buscant GPS");
     }
 
-    if (GPS.fix) {
+    if (GPS.fix == 1) {
       Serial.print(GPS.hour, DEC); Serial.print(':');
       Serial.print(GPS.minute, DEC); Serial.print(':');
       Serial.print(GPS.seconds, DEC); Serial.print(',');
@@ -90,8 +93,8 @@ void loop()                     // run over and over again
       Serial.print(GPS.longitudeDegrees, 4);
       Serial.print(',');
       //Serial.print("Speed (knots): "); 
-      Serial.print((GPS.speed)*0.5144444);
-      Serial.print(',');
+   //   Serial.print((GPS.speed)*0.5144444);
+   //   Serial.print(',');
       //Serial.print("Altitude: ");
       Serial.println(GPS.altitude);
      

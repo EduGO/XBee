@@ -1,6 +1,0 @@
-Socket Female RP-SMA 
-https://www.amazon.es/Sourcingmap-Conector-recto-hembra-unidades/dp/B008SO64S2/ref=sr_1_fkmr0_1?ie=UTF8&qid=1485354920&sr=8-1-fkmr0&keywords=socket+rpsma+pcb
-
-Shield XBee Arduino Nano x1 (Balloon Module)
-
-XBee Explorer USB x2
